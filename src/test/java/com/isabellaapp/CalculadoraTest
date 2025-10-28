@@ -1,0 +1,55 @@
+package com.isabellaapp;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.*;
+
+import com.isabellaapp.Calculadora;
+
+@SpringBootTest
+public class CalculadoraTest {
+    
+    @Autowired
+    private Calculadora calculadora;  // Spring inyecta automáticamente
+    
+    @Test
+    public void testSuma() {
+        int resultado = calculadora.suma(2, 3);
+        assertEquals(5, resultado);
+    }
+    
+    @Test
+    public void testResta() {
+        int resultado = calculadora.resta(3, 2);
+        assertEquals(1, resultado);
+    }
+    
+    @Test
+    public void testMultiplicacion() {
+        int resultado = calculadora.multiplicacion(4, 3);
+        assertEquals(12, resultado);
+    }
+    
+    @Test
+    public void testDivision() {
+        double resultado = calculadora.division(10, 2);
+        assertEquals(5.0, resultado);
+    }
+    
+    @Test
+    public void testDivisionPorCero() {
+        Exception exception = assertThrows(ArithmeticException.class, () -> {
+            calculadora.division(10, 0);
+        });
+        
+        assertTrue(exception.getMessage().contains("División por cero"));
+    }
+    
+    @Test
+    public void testSaludar() {
+        String mensaje = calculadora.saludar();
+        assertNotNull(mensaje);
+        assertTrue(mensaje.contains("Calculadora"));
+    }
+}
