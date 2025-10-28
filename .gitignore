@@ -1,0 +1,33 @@
+# Archivos de compilación
+target/
+bin/
+build/
+*.jar
+*.war
+*.ear
+
+# Archivos de IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración local
+application-local.properties
+application-dev.properties
+
+# Logs
+*.log
+logs/
+
+# Archivos temporales
+*.tmp
+*.temp 
